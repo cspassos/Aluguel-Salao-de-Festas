@@ -12,17 +12,10 @@ public class Aluguel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idAluguel;
+	private Long identifier;
 	private Date fimAnuncio;
 	private String descricao;
 	
-	
-	public Long getIdAluguel() {
-		return idAluguel;
-	}
-	public void setIdAluguel(Long idAluguel) {
-		this.idAluguel = idAluguel;
-	}
 	public Date getFimAnuncio() {
 		return fimAnuncio;
 	}
@@ -35,6 +28,11 @@ public class Aluguel {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+	public Long getIdentifier() {
+		return identifier;
+	}
+	public void setIdentifier(Long identifier) {
+		this.identifier = identifier;
+	}
 	
 }

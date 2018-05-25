@@ -1,0 +1,74 @@
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+
+<style type="text/css">
+	button{
+		width: 80px;
+	}
+	
+	input{
+		width: 100%;
+	}
+	
+	.tam1{
+		width: 32;
+		height: 32;
+	}
+	
+</style>
+
+<div>
+	
+	<h2>Alugéis</h2>
+	
+	<div>
+	
+		<label for="identifier">Identificador:</label>
+			<input type="text" ng-model="aluguel.identifier" readonly="readonly" class="form-control" id="identifier" placeholder="identifier">
+		<label for="fimAnuncio">Fim do anúncio:</label>
+			<input type="text" ng-model="aluguel.fimAnuncio" class="form-control" id="fimAnuncio" placeholder="fimAnuncio">
+		<label for="fimAnuncio">Descrição:</label>
+			<input type="text" ng-model="aluguel.identifier" class="form-control" id="fimAnuncio" placeholder="fimAnuncio">
+	</div>
+	
+	<br />
+	
+	<div>
+		<button class="btn btn-primary" ng-click="novo();">Novo</button>
+		<button class="btn btn-primary" ng-click="salvar();">Salvar</button>
+	</div>
+	
+	<br />
+	
+	<div>
+		<label for="filtro">Buscar: </label>
+			<input type="text" ng-model="filtro" class="form-control" id="filtro">
+	</div>
+	
+	<br />
+	
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-bordered table-condensed">
+			<tr>
+				<th style="cursor: pointer" ng-click="orderByMe('identifier')">Identificador</th>
+				<th style="cursor: pointer" ng-click="orderByMe('fimAnuncio')">Fim do anúncio</th>
+				<th>Descrição</th>
+				<th>Editar</th>
+				<th>Excluir</th>
+			</tr>
+			
+			<tr ng-repeat="aluguel in aluguels | orderBy:myOrderBy | filter:filtro">
+				<td>{{aluguel.identifier}}</td>
+				<td>{{aluguel.fimAnuncio}}</td>
+				<td>{{aluguel.descricao}}</td>
+				<td><button ng-click="editar(aluguel);">Editar</button></td>
+				<td><button ng-click="excluir(aluguel);">Excluir</button></td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	
+	
+	
+	
+</div>
