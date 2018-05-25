@@ -13,13 +13,13 @@ public class Aluguel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long identifier;
-	private Date fimAnuncio;
+	private String fimAnuncio;
 	private String descricao;
 	
-	public Date getFimAnuncio() {
+	public String getFimAnuncio() {
 		return fimAnuncio;
 	}
-	public void setFimAnuncio(Date fimAnuncio) {
+	public void setFimAnuncio(String fimAnuncio) {
 		this.fimAnuncio = fimAnuncio;
 	}
 	public String getDescricao() {

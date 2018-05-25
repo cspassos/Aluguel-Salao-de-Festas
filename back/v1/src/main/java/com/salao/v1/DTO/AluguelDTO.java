@@ -14,7 +14,7 @@ public class AluguelDTO extends ResourceSupport{
 	@JsonInclude(Include.NON_NULL)
 	private Long identifier;
 	@JsonInclude(Include.NON_NULL)
-	private Date fimAnuncio;
+	private String fimAnuncio;
 	@JsonInclude(Include.NON_NULL)
 	private String descricao;
 	
@@ -34,7 +34,7 @@ public class AluguelDTO extends ResourceSupport{
 	public AluguelDTO(Aluguel aluguel) {
 		super();
 		this.identifier = aluguel.getIdentifier();
-		this.fimAnuncio = aluguel.getFimAnuncio();
+		this.setFimAnuncio(aluguel.getFimAnuncio());
 		this.descricao = aluguel.getDescricao();
 	}
 
@@ -46,20 +46,20 @@ public class AluguelDTO extends ResourceSupport{
 		this.identifier = identifier;
 	}
 
-	public Date getFimAnuncio() {
-		return fimAnuncio;
-	}
-
-	public void setFimAnuncio(Date fimAnuncio) {
-		this.fimAnuncio = fimAnuncio;
-	}
-
 	public String getDescricao() {
 		return descricao;
 	}
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getFimAnuncio() {
+		return fimAnuncio;
+	}
+
+	public void setFimAnuncio(String fimAnuncio) {
+		this.fimAnuncio = fimAnuncio;
 	}
 	
 	

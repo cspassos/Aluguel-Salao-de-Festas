@@ -17,4 +17,18 @@ aluguelApp.controller("AluguelController", function($scope, $http){
 	
 	$scope.listar();
 	
+	
+	$scope.novo = function(){
+		$scope.aluguel = "";
+	}
+	
+	$scope.salvar = function(){
+		
+			$http.post(urlBase + "/aluguels/", $scope.aluguel).then(function (response) {
+				$scope.listar();
+				$scope.novo();
+			}, function(response){
+				window.alert("Erro de POST");
+			})
+	}
 });
