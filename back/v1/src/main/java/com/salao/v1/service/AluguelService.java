@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.salao.v1.exception.AluguelAlreadyExistException;
+import com.salao.v1.exception.AluguelNotFoundException;
 import com.salao.v1.model.Aluguel;
 import com.salao.v1.repository.AluguelRepository;
 
@@ -35,6 +36,28 @@ public class AluguelService {
 		
 		return aluguelRepository.save(p);
 	}
+
+	@Transactional(readOnly = true)
+	public Aluguel findById(Long id) {
+		if(!exist(id)) {
+			throw new AluguelNotFoundException("Aluguel com esse id não existe: "+ id);
+		}
+		
+		return aluguelRepository.findOne(id);
+	}
 	
+	@Transactional(readOnly = false)
+	public Aluguel update(Aluguel p) {
+		if(!exist(p.getIdentifier())) {
+			throw new AluguelNotFoundException("Aluguel com esse id não existe: "+ p.getIdentifier());
+		}
+		
+		return aluguelRepository.save(p);
+		
+	}
 	
+	@Transactional(readOnly = false)
+	public void delete(Aluguel p) {
+		aluguelRepository.delete(p);
+	}
 }
